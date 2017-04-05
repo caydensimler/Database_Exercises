@@ -9,9 +9,9 @@ USE codeup_test_db;
 
 -- ALL ALBUMS BEFORE 1980 BACK TO THE 1800s
 
-	UPDATE albums 
-	SET release_date = (release_date-100) 
-	WHERE release_date < 1980;
+	UPDATE albums
+	SET release_date = DATE_SUB(release_date, INTERVAL 100 YEAR)
+	WHERE release_date < '1980-01-01';
 
 	-- SELECT * FROM albums WHERE release_date < 1980;
 
@@ -22,7 +22,3 @@ USE codeup_test_db;
 	WHERE artist = "Michael Jackson";
 
 	-- SELECT artist FROM albums WHERE artist = "Peter Jackson";
-
--- SHOW ALL WORK	
-
-	SELECT * FROM albums;
